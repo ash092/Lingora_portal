@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1779195823951,
+      "tag": "0000_melodic_sir_ram",
+      "breakpoints": true
+    }
+  ]
+}
