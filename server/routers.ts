@@ -10,8 +10,10 @@ import { invoiceRouter } from "./routers/invoice";
 import { poRouter } from "./routers/po";
 import { messagesRouter } from "./routers/messages";
 import { superAdminRouter } from "./routers/superAdmin";
+import { setupRouter } from "./routers/setup";
 
 export const appRouter = router({
+  setup: setupRouter,
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

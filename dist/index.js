@@ -2348,8 +2348,28 @@ var superAdminRouter = router({
   })
 });
 
+// server/routers/setup.ts
+import { TRPCError as TRPCError8 } from "@trpc/server";
+var setupRouter = router({
+  initializeDatabase: publicProcedure.mutation(async ({ ctx }) => {
+    try {
+      return {
+        success: true,
+        message: "Database setup endpoint ready"
+      };
+    } catch (error) {
+      console.error("Setup error:", error);
+      throw new TRPCError8({
+        code: "INTERNAL_SERVER_ERROR",
+        message: "Failed to initialize database"
+      });
+    }
+  })
+});
+
 // server/routers.ts
 var appRouter = router({
+  setup: setupRouter,
   system: systemRouter,
   auth: router({
     me: publicProcedure.query((opts) => opts.ctx.user),
